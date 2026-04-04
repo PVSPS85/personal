@@ -6,15 +6,16 @@ int main(void)
     char text[100];
 
     printf("Enter the text: ");
-    scanf("%s", text);   // FIXED
+    fgets(text, sizeof(text), stdin);   // ✅ FIXED (takes full sentence)
 
     int len = strlen(text);
 
-    for (int i = 0; i < len; i++)   // FIXED (< not <=)
+    for (int i = 0; i < len; i++)
     {
         printf("%c\n", text[i]);
-        printf("the lenght is %i=",len);
     }
+
+    printf("The length is: %d\n", len);   // ✅ moved outside loop
 
     return 0;
 }
