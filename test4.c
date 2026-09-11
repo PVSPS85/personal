@@ -41,12 +41,21 @@ float div()
     }
     printf("the div is%d",div);
 }
+
+float inter(){
+    int x ;
+    printf("enter the number\n");
+    scanf("%i",&x);
+    x++;
+    printf("the number x is increment is : %i ",x);
+}
 int main(void)
 {
     int ch,x;
     printf("1.sum\n");
     printf("2.mult\n");
     printf("3.div\n");
+    printf("4.increment a number \n");
     printf("enter your choice");
     scanf("%d",&ch);
     switch(ch)
@@ -61,6 +70,9 @@ int main(void)
         case 3:
             div();
             break;
+        case 4:
+            inter();
+            break();
         default :
             printf("not possiable");
             break;
