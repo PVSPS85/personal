@@ -20,11 +20,14 @@ int main()
         printf("it is a palindrome number ");
 
     }
-    else 
+    else if
     {
-        printf("it is not a palindrome number ");
+        printf("it is not a palinderome number ");
 
     }
+    else {
+        printf("")}
+    
 
     return 0;
 }
