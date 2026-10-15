@@ -1,0 +1,67 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+int main()
+{
+    struct node *head = NULL, *temp, *newnode;
+    int n, i;
+
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        newnode = malloc(sizeof(struct node));
+
+        if (newnode == NULL)
+        {
+            printf("Memory allocation failed\n");
+            return 1;
+        }
+
+        printf("Enter data: ");
+        scanf("%d", &newnode->data);
+
+        newnode->next = NULL;
+
+        if (head == NULL)
+        {
+            head = newnode;
+            temp = head;
+        }
+        else
+        {
+            temp->next = newnode;
+            temp = newnode;
+        }
+    }
+
+    printf("Linked list: ");
+
+    temp = head;
+
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+
+    // Free the allocated memory
+    temp = head;
+
+    while (temp != NULL)
+    {
+        struct node *nextnode = temp->next;
+        free(temp);
+        temp = nextnode;
+    }
+
+    return 0;
+}
