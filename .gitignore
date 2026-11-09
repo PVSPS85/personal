@@ -1,0 +1,13 @@
+# Compiled Binaries and Objects
+*.out
+*.o
+*.obj
+*.exe
+a.out
+
+# macOS files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
