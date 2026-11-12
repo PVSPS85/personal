@@ -1,0 +1,77 @@
+
+#include <stdio.h>
+#define SIZE 5
+
+int queue[SIZE];
+int front = 0, rear = -1, count = 0;
+
+void enqueue() {
+    int x;
+
+    if (count == SIZE) {
+        printf("Queue Overflow\n");
+    }
+    else {
+        printf("Enter element: ");
+        scanf("%d", &x);
+
+        rear = (rear + 1) % SIZE;
+        queue[rear] = x;
+        count++;
+    }
+}
+
+void dequeue() {
+    if (count == 0) {
+        printf("Queue Underflow\n");
+    }
+    else {
+        printf("Deleted: %d\n", queue[front]);
+
+        front = (front + 1) % SIZE;
+        count--;
+    }
+
+    if (count == 0) {
+        front = 0;
+        rear = -1;
+    }
+}
+
+void display() {
+    int i, pos;
+
+    if (count == 0) {
+        printf("Queue is Empty\n");
+    }
+    else {
+        printf("Queue: ");
+
+        pos = front;
+
+        for (i = 0; i < count; i++) {
+            printf("%d ", queue[pos]);
+            pos = (pos + 1) % SIZE;
+        }
+
+        printf("\n");
+    }
+}
+
+int main() {
+    int ch;
+
+    while (1) {
+        printf("\n1.Enqueue\n2.Dequeue\n3.Display\n4.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+            case 1: enqueue(); break;
+            case 2: dequeue(); break;
+            case 3: display(); break;
+            case 4: return 0;
+            default: printf("Invalid Choice\n");
+        }
+    }
+}
